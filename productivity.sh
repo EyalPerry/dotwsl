@@ -13,6 +13,7 @@ alias del_dep="rm -rf node_modules"
 alias ri="del_dep && npm i"
 alias rci="del_dep && npm ci"
 alias nkill="killall -9 node"
+alias start="npm run start"
 
 ## Installs the specified NPM version
 ### arg0: npm version
