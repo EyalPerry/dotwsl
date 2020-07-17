@@ -1,5 +1,7 @@
 ## Misc
 alias cls="clear && printf '\e[3J'"
+alias dotfiles="cd $SCRIPT_ROOT"
+alias code="cd $CODE_ROOT"
 
 ## Docker
 alias dprune="docker system prune -f"
@@ -14,6 +16,7 @@ alias ri="del_dep && npm i"
 alias rci="del_dep && npm ci"
 alias nkill="killall -9 node"
 alias start="npm run start"
+alias test="npm run test"
 
 ## Installs the specified NPM version
 ### arg0: npm version
