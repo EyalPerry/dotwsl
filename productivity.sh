@@ -4,11 +4,11 @@ alias dotfiles="cd $SCRIPT_ROOT"
 alias code="cd $CODE_ROOT"
 
 ## Docker
-alias dprune="docker system prune -f"
-alias dnuke="docker system prune -f -a --volumes"
-alias rb="docker-compose build --no-cache"
-alias up="docker-compose rm -s -f && docker-compose down && docker-compose up -d --force-recreate --remove-orphans"
+alias dstart="docker-compose up -t 0 --remove-orphans --force-recreate"
+alias dstop="docker-compose down -t 0 --remove-orphans"
 alias dkill="docker rm -f \$(docker ps -a -q)"
+alias dlog="docker-compose logs -f"
+alias dlogd="docker-compose logs"
 
 ## Node & NPM
 alias del_dep="rm -rf node_modules"
