@@ -5,17 +5,18 @@ zsh configuration for WSL
 Make sure you have the below installed / configured properly before using this repo.
 
 - Windows Terminal
+- WSL
 - git
-- docker
+- docker+WSL2
 - nvm
 - zsh
 - antigen (an awesome dependency manager for zsh / oh-my-zsh)  
 
 # Setup
 
-1) clone this repo into `~/dotfiles` <br/>
+1) Clone this repo into `~/dotfiles` <br/>
 
-2) (important!) change variables in `var.sh` according to your folder layout and other preferences.<br/>
+2) Change variables in `var.sh`.<br/>
 
 3) (optional) Add an `env.sh` file in this repository's root and export credentials and any other variables <br/>
 This file will not be committed into source control.<br/>
@@ -25,12 +26,9 @@ export VARIABLE=?
 ...
 ```
 
-4) (optional) apply the `iterm-profile.json` / `windows-terminal-profile.json` to your terminal. <br/>
-If you skip this step, be sure to apply your powerline font of choice to your terminal.<br/>
-
-5) (optional) Install the Sauce Code Pro Fonts
-
-6) (important) Add the below line into `~/.zshrc`: <br/>
+4) Apply the `windows-terminal-profile.json` to your windows terminal. <br/>
+5) Install fonts from the Fonts folder
+6) Add the below line into `~/.zshrc`: <br/>
 
 ```bash
 source ~/dotfiles/main.sh
