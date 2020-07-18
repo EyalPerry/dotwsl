@@ -16,7 +16,9 @@ alias ri="del_dep && npm i"
 alias rci="del_dep && npm ci"
 alias nkill="killall -9 node"
 alias start="npm run start"
+alias stop="npm run stop"
 alias test="npm run test"
+alias testw="npm run test:watch"
 
 ## Installs the specified NPM version
 ### arg0: npm version
