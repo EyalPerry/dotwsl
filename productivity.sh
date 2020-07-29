@@ -1,3 +1,6 @@
+alias cr="cd $CODE_ROOT"
+alias dotfiles="cd $SCRIPT_ROOT"
+
 ## Misc
 alias cls="clear && printf '\e[3J'"
 alias dotfiles="cd $SCRIPT_ROOT"

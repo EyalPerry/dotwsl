@@ -17,6 +17,8 @@ Make sure you have the below installed / configured properly before using this r
 1) Clone this repo into `~/dotfiles` <br/>
 
 2) Change variables in `var.sh`.<br/>
+You must set tge CODE_ROOT variable. i.e.:
+`export CODE_ROOT="$HOME/Documents/GitHub/"`
 
 3) (optional) Add an `env.sh` file in this repository's root and export credentials and any other variables <br/>
 This file will not be committed into source control.<br/>
