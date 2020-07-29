@@ -17,16 +17,18 @@ Make sure you have the below installed / configured properly before using this r
 1) Clone this repo into `~/dotfiles` <br/>
 
 2) Change variables in `var.sh`.<br/>
-You must set the CODE_ROOT variable. i.e.<br/>
-`export CODE_ROOT="$HOME/Documents/GitHub/"`
 
-3) (optional) Add an `env.sh` file in this repository's root and export credentials and any other variables <br/>
+
+3) Add an `env.sh` file in this repository's root and export credentials and any other variables <br/>
 This file will not be committed into source control.<br/>
 
 ```bash
 export VARIABLE=?
 ...
 ```
+
+You must set the CODE_ROOT variable in this file<br/>
+`export CODE_ROOT="$HOME/Documents/GitHub/"`
 
 4) Apply the `windows-terminal-profile.json` to your windows terminal. <br/>
 5) Install fonts from the Fonts folder
