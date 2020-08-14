@@ -18,7 +18,7 @@ alias nkill="killall -9 node"
 alias start="npm run start"
 alias stop="npm run stop"
 alias test="npm run test"
-alias testw="npm run test:watch"
+alias client="npm run client"
 
 ## Installs the specified NPM version
 ### arg0: npm version
