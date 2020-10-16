@@ -1,32 +1,3 @@
-## Misc
-alias cls="clear && printf '\e[3J'"
-alias dotfiles="cd $SCRIPT_ROOT"
-alias cr="cd $CODE_ROOT"
-
-## Docker
-alias dstart="docker-compose up -t 0 --remove-orphans --force-recreate"
-alias dstop="docker-compose down -t 0 --remove-orphans"
-alias dkill="docker rm -f \$(docker ps -a -q)"
-alias dlog="docker-compose logs -f"
-alias dlogd="docker-compose logs"
-
-## Node & NPM
-alias del_dep="rm -rf node_modules"
-alias ri="del_dep && npm i"
-alias rci="del_dep && npm ci"
-alias nkill="killall -9 node"
-alias start="npm run start"
-alias stop="npm run stop"
-alias test="npm run test"
-alias client="npm run client"
-
-## Installs the specified NPM version
-### arg0: npm version
-function npm_version() {
-  npm install -g npm@$1
-}
-
-## Git
 alias master="git checkout master && git pull"
 alias push="git push"
 alias pull="git pull"

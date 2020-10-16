@@ -10,6 +10,9 @@ fi
 
 source $SCRIPT_ROOT/framework.sh
 source $SCRIPT_ROOT/system.sh
-source $SCRIPT_ROOT/productivity.sh
+source $SCRIPT_ROOT/misc.sh
+source $SCRIPT_ROOT/node.sh
+source $SCRIPT_ROOT/git.sh
+source $SCRIPT_ROOT/docker.sh
 
 cd $CURRENT_DIR
