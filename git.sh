@@ -18,9 +18,9 @@ function set_remote() {
 
 ### creates a local branch from a source branch after pulling it.
 ### arg0: name of branch to create
-### arg1: name of source branch (defaults to master)
+### arg1: name of source branch (defaults to main)
 function branch(){
-   SRC=${2:-master} 
+   SRC=${2:-main} 
    git checkout $SRC && git pull \
    && git checkout -b $1 
 }
@@ -34,9 +34,9 @@ function publish(){
 }
 
 ### pulls and merges a source branch into the current branch
-### arg0: name of the source branch (defaults to master)
+### arg0: name of the source branch (defaults to main)
 function sync(){
-    SRC=${1:-master} 
+    SRC=${1:-main} 
     X_CURRENT_GIT_BRANCH=$(current_branch)
     git checkout $SRC && git pull \
     && git checkout $X_CURRENT_GIT_BRANCH \
