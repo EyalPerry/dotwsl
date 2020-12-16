@@ -1,4 +1,4 @@
-alias master="git checkout master && git pull"
+alias main="git checkout main && git pull"
 alias push="git push"
 alias pull="git pull"
 
