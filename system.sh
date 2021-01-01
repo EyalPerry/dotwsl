@@ -4,7 +4,7 @@
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 if [ -d "$HOME/anaconda3" ] ; then
-  PATH="$PATH:$HOME/anaconda3"
+  PATH="$PATH:$HOME/anaconda3/bin"
 fi
 
 ## load ssh credentials
