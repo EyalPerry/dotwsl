@@ -8,11 +8,13 @@ if [ -f $SCRIPT_ROOT/env.sh ]; then
     source $SCRIPT_ROOT/env.sh
 fi
 
+source $SCRIPT_ROOT/work.sh
 source $SCRIPT_ROOT/framework.sh
 source $SCRIPT_ROOT/system.sh
 source $SCRIPT_ROOT/misc.sh
 source $SCRIPT_ROOT/node.sh
 source $SCRIPT_ROOT/git.sh
 source $SCRIPT_ROOT/docker.sh
+source $SCRIPT_ROOT/devices.sh
 
 cd $CURRENT_DIR
