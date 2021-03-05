@@ -14,5 +14,6 @@ source $SCRIPT_ROOT/misc.sh
 source $SCRIPT_ROOT/node.sh
 source $SCRIPT_ROOT/git.sh
 source $SCRIPT_ROOT/docker.sh
+source $SCRIPT_ROOT/python.sh
 
 cd $CURRENT_DIR
