@@ -2,6 +2,10 @@ alias main="git checkout main && git pull"
 alias push="git push"
 alias pull="git pull"
 
+function current_branch(){
+    git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
+}
+
 ### Stage all and commit with message
 ### arg0-n: commit message parts
 function commit() { 
@@ -20,7 +24,7 @@ function set_remote() {
 ### arg0: name of branch to create
 ### arg1: name of source branch (defaults to main)
 function branch(){
-   SRC=${2:-main} 
+   SRC=${2:-$DEFAULT_BRANCH} 
    git checkout $SRC && git pull \
    && git checkout -b $1 
 }
@@ -36,7 +40,7 @@ function publish(){
 ### pulls and merges a source branch into the current branch
 ### arg0: name of the source branch (defaults to main)
 function sync(){
-    SRC=${1:-main} 
+    SRC=${1:-$DEFAULT_BRANCH} 
     X_CURRENT_GIT_BRANCH=$(current_branch)
     git checkout $SRC && git pull \
     && git checkout $X_CURRENT_GIT_BRANCH \
