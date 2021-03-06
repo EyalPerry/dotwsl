@@ -4,11 +4,12 @@ export CURRENT_DIR=$(pwd)
 
 source $SCRIPT_ROOT/var.sh
 
+source $SCRIPT_ROOT/work.sh
+
 if [ -f $SCRIPT_ROOT/env.sh ]; then
     source $SCRIPT_ROOT/env.sh
 fi
 
-source $SCRIPT_ROOT/work.sh
 source $SCRIPT_ROOT/framework.sh
 source $SCRIPT_ROOT/system.sh
 source $SCRIPT_ROOT/misc.sh
