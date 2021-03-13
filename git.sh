@@ -2,8 +2,6 @@ alias main="git checkout main && git pull"
 alias push="git push"
 alias pull="git pull"
 
-alias deploy="act --secret-file .github/.env"
-
 function current_branch(){
     git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
 }
