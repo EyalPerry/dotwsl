@@ -15,6 +15,7 @@ source $SCRIPT_ROOT/system.sh
 source $SCRIPT_ROOT/misc.sh
 source $SCRIPT_ROOT/node.sh
 source $SCRIPT_ROOT/git.sh
+source $SCRIPT_ROOT/github.sh
 source $SCRIPT_ROOT/docker.sh
 source $SCRIPT_ROOT/python.sh
 source $SCRIPT_ROOT/devices.sh
