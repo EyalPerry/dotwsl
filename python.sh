@@ -1,1 +1,1 @@
-alias pyi="pip install -r requirements.txt"
+# alias pyi="pip install -r requirements.txt"

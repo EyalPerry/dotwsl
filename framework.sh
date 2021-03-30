@@ -15,7 +15,6 @@ antigen bundle brew
 antigen bundle git
 antigen bundle docker
 antigen bundle docker-compose
-antigen bundle nvm
 antigen bundle npm
 antigen bundle node
 antigen bundle osx

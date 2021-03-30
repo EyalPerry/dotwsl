@@ -2,6 +2,17 @@ alias main="git checkout main && git pull"
 alias push="git push"
 alias pull="git pull"
 
+alias master_exists="git show-ref --verify --quiet refs/heads/master"
+alias main_exists="git show-ref --verify --quiet refs/heads/main"
+
+if master_exists; then
+    export DEFAULT_BRANCH="master"
+fi
+
+if main_exists; then
+    export DEFAULT_BRANCH="main"
+fi
+
 function current_branch(){
     git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
 }
