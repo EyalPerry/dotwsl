@@ -1,7 +1,7 @@
-alias py_env_i="rm -rf .pyenv/env && python3 -m venv .pyenv/env"
-alias py_env="source ./.pyenv/env/bin/activate"
+alias py_env_init="rm -rf .pyenv/env && python3 -m venv .pyenv/env"
+alias py_env_activate="source ./.pyenv/env/bin/activate"
 
-alias py_test="py_env && pytest"
+alias py_test="pytest"
 
 function pyi(){
    pip3 install -I -r requirements.txt
@@ -11,5 +11,5 @@ function pyi(){
 }
 
 if [ -f ./.pyenv/env/bin/activate ]; then
-    py_env
+    py_env_activate
 fi
