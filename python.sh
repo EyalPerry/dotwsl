@@ -4,6 +4,10 @@ alias py_env_activate="source ./.pyenv/env/bin/activate"
 alias py_test="pytest"
 
 function pyi() {
+    if [ ! -d .pyenv/env ]; then
+        py_env_init
+    fi
+
     if [ -f setup.py ]; then
         pip3 install -e '.[dev]'
     fi
@@ -16,7 +20,7 @@ function pyi() {
         pip3 install -I -r requirements-dev.txt
     fi
 
-    if [ -d src/functions]; then
+    if [ -d src/functions ]; then
         for d in src/functions/*/; do
             if [ -f "$d"/requirements.txt ]; then
                 pip3 install -I -r "$d"/requirements.txt

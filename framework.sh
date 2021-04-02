@@ -1,8 +1,6 @@
 # Framework
 
-
 source $ANTIGEN_PATH
-
 
 ## Load the oh-my-zsh library
 antigen use oh-my-zsh
@@ -18,6 +16,7 @@ antigen bundle docker-compose
 antigen bundle npm
 antigen bundle node
 antigen bundle osx
+antigen bundle python
 
 ## Load theme
 source $SCRIPT_ROOT/theme.sh
