@@ -16,7 +16,6 @@ antigen bundle docker-compose
 antigen bundle npm
 antigen bundle node
 antigen bundle osx
-antigen bundle python
 
 ## Load theme
 source $SCRIPT_ROOT/theme.sh

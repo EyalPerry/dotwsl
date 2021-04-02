@@ -1,4 +1,4 @@
-alias py_env_init="rm -rf .pyenv/env && python3 -m venv .pyenv/env && py_env_activate"
+alias py_env_init="rm -rf .pyenv/env && python3 -m venv --system-site-packages .pyenv/env && py_env_activate"
 alias py_env_activate="source ./.pyenv/env/bin/activate"
 
 alias py_test="pytest"
