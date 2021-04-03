@@ -28,7 +28,7 @@ function pyi() {
     fi
 
     # Install monorepo libraries
-    if [ test -f setup.py ]; then
+    if [ -f setup.py ]; then
         pip3 install -e '.[dev]'
     fi
 
