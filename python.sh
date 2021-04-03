@@ -8,10 +8,6 @@ function pyi() {
         py_env_init
     fi
 
-    if [ -f setup.py ]; then
-        pip3 install -e '.[dev]'
-    fi
-
     if [ -f requirements.txt ]; then
         pip3 install -I -r requirements.txt
     fi
@@ -31,6 +27,17 @@ function pyi() {
         done
     fi
 
+    # Install monorepo libraries
+    if [ -f setup.py ]; then
+        pip3 install -e '.[dev]'
+    fi
+
+    libraries=$(find . -maxdepth 1 -type d)
+    for d in $libraries; do
+        if test -f "$d"/setup.py; then
+            pip3 install -e '.[dev]'
+        fi
+    done
 }
 
 if [ -f ./.pyenv/env/bin/activate ]; then
