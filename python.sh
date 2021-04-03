@@ -28,13 +28,13 @@ function pyi() {
     fi
 
     # Install monorepo libraries
-    if [ -f setup.py ]; then
+    if [ test -f setup.py ]; then
         pip3 install -e '.[dev]'
     fi
 
     libraries=$(find . -maxdepth 1 -type d)
     for d in $libraries; do
-        if test -f "$d"/setup.py; then
+        if [ -f "$d"/setup.py ]; then
             pip3 install -e '.[dev]'
         fi
     done
