@@ -4,9 +4,7 @@ alias py_env_activate="source ./.pyenv/env/bin/activate"
 alias py_test="pytest"
 
 function pyi() {
-    if [ ! -d .pyenv/env ]; then
-        py_env_init
-    fi
+    py_env_init
 
     if [ -f requirements.txt ]; then
         pip3 install -I -r requirements.txt
