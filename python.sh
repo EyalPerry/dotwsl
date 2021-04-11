@@ -25,6 +25,17 @@ function pyi() {
         done
     fi
 
+    if [ -d src/lambdas ]; then
+        for d in src/lambdas/*/; do
+            if [ -f "$d"/requirements.txt ]; then
+                pip3 install -I -r "$d"/requirements.txt
+            fi
+            if [ -f "$d"/requirements-dev.txt ]; then
+                pip3 install -I -r "$d"/requirements-dev.txt
+            fi
+        done
+    fi
+
     # Install monorepo libraries
     if [ -f setup.py ]; then
         pip3 install -e '.[dev]'
