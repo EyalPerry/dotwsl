@@ -17,6 +17,15 @@ function current_branch() {
     git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
 }
 
+function syncd() {
+    git checkout $DEFAULT_BRANCH && git pull
+}
+
+function merged() {
+    X_CURRENT_GIT_BRANCH=$(current_branch)
+    syncd && git branch -D $X_CURRENT_GIT_BRANCH
+}
+
 ### Stage all and commit with message
 ### arg0-n: commit message parts
 function commit() {
