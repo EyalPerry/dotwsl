@@ -17,6 +17,10 @@ function current_branch() {
     git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
 }
 
+function defsync() {
+    git checkout $DEFAULT_BRANCH && git pull
+}
+
 function merged() {
     X_CURRENT_GIT_BRANCH=$(current_branch)
     git checkout $DEFAULT_BRANCH && git pull && git branch -D $X_CURRENT_GIT_BRANCH
@@ -26,6 +30,10 @@ function merged() {
 ### arg0-n: commit message parts
 function commit() {
     git add -A && git commit -m "$*"
+}
+
+function uncommit() {
+    git reset HEAD^1
 }
 
 ### sets a remote url for the repository
