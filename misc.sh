@@ -6,5 +6,5 @@ alias shconf="code $SCRIPT_ROOT"
 # kills the process which is bound to the specified port
 # arg0: port of process to kill
 function pkill() {
-    kill -9 $(lsof -t -i:$1)
+    lsof -t -i tcp:$1 | xargs kill
 }
