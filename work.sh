@@ -7,7 +7,7 @@ function ag_gg() {
 }
 
 function ag_grower() {
-    cd $CODE_ROOT && cd agwa-mobile-app
+    cd $CODE_ROOT && cd agwa-mobile-app/AgwaFarmMobileApp
 }
 
 function agrw() {
