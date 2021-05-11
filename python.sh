@@ -14,6 +14,10 @@ function pyi() {
         pip3 install -I -r requirements-dev.txt
     fi
 
+    if [ -f test/requirements.txt ]; then
+        pip3 install -I -r test/requirements.txt
+    fi
+
     if [ -d src/functions ]; then
         for d in src/functions/*/; do
             if [ -f "$d"/requirements.txt ]; then
