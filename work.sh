@@ -10,11 +10,11 @@ function ag_grower() {
     cd $CODE_ROOT && cd agwa-mobile-app/AgwaFarmMobileApp
 }
 
-function agrw() {
+function agronomist() {
     webapp agwa-agronomist-web
 }
 
-function agpw() {
+function purchase() {
     webapp agwa-website/client
 }
 
