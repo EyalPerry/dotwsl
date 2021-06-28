@@ -18,8 +18,6 @@ function purchase() {
     webapp agwa-website/client
 }
 
-export AGWA_SERVICE_LIBRARY_TAG = "edge"
-
 alias aglib="python3 -m pip install git+ssh://git@github.com/agwafarm/agwa-service-library.git@${AGWA_SERVICE_LIBRARY_TAG}#egg=agwa-service-library"
 
 alias grower="ag_grower && react-native run-android"
