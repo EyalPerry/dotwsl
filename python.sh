@@ -3,6 +3,17 @@ alias py_env_activate="source ./.pyenv/env/bin/activate"
 
 alias py_test="pytest"
 
+function pyp() {
+    export TWINE_USERNAME=aws
+    export TWINE_PASSWORD=$(aws codeartifact get-authorization-token --domain agwafarm-private --domain-owner 953022346399 --query authorizationToken --output text)
+    export TWINE_REPOSITORY_URL=$(aws codeartifact get-repository-endpoint --domain agwafarm-private --domain-owner 953022346399 --repository agwafarm-private --format pypi --query repositoryEndpoint --output text)
+    rm -rf dist
+    # aws codeartifact delete-package-versions --domain agwafarm-private --domain-owner 953022346399 --repository agwafarm-private --format pypi --package agwa-analytics --versions edge
+    aws codeartifact delete-package-versions --domain agwafarm-private --domain-owner 953022346399 --repository agwafarm-private --format pypi --package $0 --versions $AGWA_SERVICE_LIBRARY_TAG
+    python setup.py sdist
+    twine upload --non-interactive dist/*
+}
+
 function pyi() {
     py_env_init
     export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain agwafarm-private --domain-owner 953022346399 --query authorizationToken --output text)
