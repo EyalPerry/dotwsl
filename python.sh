@@ -5,7 +5,8 @@ alias py_test="pytest"
 
 function pyi() {
     py_env_init
-
+    export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain agwafarm-private --domain-owner 953022346399 --query authorizationToken --output text)
+    pip config set global.extra-index-url https://aws:$CODEARTIFACT_AUTH_TOKEN@agwafarm-private-953022346399.d.codeartifact.us-west-2.amazonaws.com/pypi/agwafarm-private/simple/
     if [ -f requirements.txt ]; then
         pip3 install -I -r requirements.txt
     fi
