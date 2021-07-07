@@ -61,6 +61,7 @@ function pyi() {
 }
 
 function py_monorepo_install() {
+    export CI_MODE="true"
     IFS=$'\n'
     set -f
     libraries_list=($(find . -maxdepth 1 -type d))
@@ -69,9 +70,10 @@ function py_monorepo_install() {
         cd $CURRENT_DIR
         if [ -f "$d/setup.py" ]; then
             cd $d
-            pip3 install --no-cache-dir -e '.[dev]'
+            pip3 install -I --no-cache-dir -e '.[dev]'
         fi
     done
+    cd $CURRENT_DIR
 }
 
 if [ -f ./.pyenv/env/bin/activate ]; then
