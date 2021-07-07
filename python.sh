@@ -64,7 +64,7 @@ function py_monorepo_install() {
     export CI_MODE="true"
     IFS=$'\n'
     set -f
-    libraries_list=($(find . -maxdepth 1 -type d))
+    libraries_list=$(find . -maxdepth 1 -type d)
     export CURRENT_DIR=$(pwd)
     for d in $libraries_list; do
         cd $CURRENT_DIR
