@@ -60,12 +60,14 @@ function pyi() {
     py_monorepo_install
 }
 
-function py_monorepo_install(){
-    libraries_list=(${(@f)$(find . -maxdepth 1 -type d)})
+function py_monorepo_install() {
+    IFS=$'\n'
+    set -f
+    libraries_list=($(find . -maxdepth 1 -type d))
     export CURRENT_DIR=$(pwd)
     for d in $libraries_list; do
         cd $CURRENT_DIR
-        if [ -f "$d/setup.py" ]; then    
+        if [ -f "$d/setup.py" ]; then
             cd $d
             pip3 install --no-cache-dir -e '.[dev]'
         fi
