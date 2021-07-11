@@ -4,25 +4,18 @@ alias py_env_activate="source ./.pyenv/env/bin/activate"
 alias py_test="pytest"
 alias pi="pip install -I --no-cache-dir"
 
-function pyp() {
-    export TWINE_USERNAME=aws
-    export TWINE_PASSWORD=$(aws codeartifact get-authorization-token --domain agwafarm-private --domain-owner 953022346399 --query authorizationToken --output text)
-    export TWINE_REPOSITORY_URL=$(aws codeartifact get-repository-endpoint --domain agwafarm-private --domain-owner 953022346399 --repository agwafarm-private --format pypi --query repositoryEndpoint --output text)
-    export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain agwafarm-private --domain-owner 953022346399 --query authorizationToken --output text)
-    # command does not support non interactive mode, so we give it time to run and finish
-    aws codeartifact delete-package-versions --domain agwafarm-private --domain-owner 953022346399 --repository agwafarm-private --format pypi --package $1 --versions $AGWA_SERVICE_LIBRARY_TAG &
-    sleep 5
-    # aws codeartifact delete-package-versions --domain agwafarm-private --domain-owner 953022346399 --repository agwafarm-private --format pypi --package agwa-analytics --versions edge
-
-    rm -rf dist
-    python setup.py sdist
-    twine upload --non-interactive dist/*
-}
-
 function pyi() {
     py_env_init
-    export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain agwafarm-private --domain-owner 953022346399 --query authorizationToken --output text)
-    pip config set global.extra-index-url https://aws:$CODEARTIFACT_AUTH_TOKEN@agwafarm-private-953022346399.d.codeartifact.us-west-2.amazonaws.com/pypi/agwafarm-private/simple/
+    # export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain agwafarm-private --domain-owner 953022346399 --query authorizationToken --output text)
+    # pip config set global.extra-index-url https://aws:$CODEARTIFACT_AUTH_TOKEN@agwafarm-private-953022346399.d.codeartifact.us-west-2.amazonaws.com/pypi/agwafarm-private/simple/
+
+    export APP_CA_DOMAIN=agwafarm-private
+    export APP_CA_REPOSITORY=agwafarm-private
+    export APP_CA_DOMAIN_OWNER_ACCOUNT=953022346399
+    export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain $APP_CA_DOMAIN --domain-owner $APP_CA_DOMAIN_OWNER_ACCOUNT --query authorizationToken --output text)
+    aws codeartifact login --tool twine --repository $APP_CA_REPOSITORY --domain $APP_CA_DOMAIN --domain-owner $APP_CA_DOMAIN_OWNER_ACCOUNT
+    pip config set global.extra-index-url https://aws:$CODEARTIFACT_AUTH_TOKEN@$APP_CA_DOMAIN-$APP_CA_DOMAIN_OWNER_ACCOUNT.d.codeartifact.us-west-2.amazonaws.com/pypi/$APP_CA_REPOSITORY/simple/
+
     if [ -f requirements.txt ]; then
         pip3 install --no-cache-dir -I -r requirements.txt
     fi
