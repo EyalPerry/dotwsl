@@ -1,13 +1,17 @@
 alias py_env_init="rm -rf .pyenv/env && python3 -m venv --system-site-packages .pyenv/env && py_env_activate"
 alias py_env_activate="source ./.pyenv/env/bin/activate"
 
+function pyconf() {
+    export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain agwafarm-private --domain-owner 953022346399 --query authorizationToken --output text)
+    pip config set global.extra-index-url https://aws:$CODEARTIFACT_AUTH_TOKEN@agwafarm-private-953022346399.d.codeartifact.us-west-2.amazonaws.com/pypi/agwafarm-private/simple/
+}
+
 alias py_test="pytest"
 alias pi="pip install -I --no-cache-dir"
 
 function pyi() {
     py_env_init
-    # export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain agwafarm-private --domain-owner 953022346399 --query authorizationToken --output text)
-    # pip config set global.extra-index-url https://aws:$CODEARTIFACT_AUTH_TOKEN@agwafarm-private-953022346399.d.codeartifact.us-west-2.amazonaws.com/pypi/agwafarm-private/simple/
+    pyconf
 
     export APP_CA_DOMAIN=agwafarm-private
     export APP_CA_REPOSITORY=agwafarm-private
@@ -21,7 +25,7 @@ function pyi() {
     fi
 
     if [ -f requirements-dev.txt ]; then
-        pip3 install --no-cache-dir -I -r requirements-dev.txt
+        pip3 install -r requirements-dev.txt
     fi
 
     if [ -f test/requirements.txt ]; then
